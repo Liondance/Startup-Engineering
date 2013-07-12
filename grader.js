@@ -2,8 +2,8 @@
 
 /*
 Automatically grade files for the presence of specified HTML tags/attributes.
-Teaches command line application development and basic DOM parsing.
-Uses commander.js and cheerio.
+Uses commander.js and cheerio. Teaches command line application development
+and basic DOM parsing.
 
 References:
 
@@ -31,6 +31,16 @@ var sys = require('util');
 var HTMLFILE_DEFAULT = "index.html";
 var CHECKSFILE_DEFAULT = "checks.json";
 
+var clone = function(fn) {
+    // Workaround for commander.js issue.
+    // http://stackoverflow.com/a/6772648
+    return fn.bind({});
+};
+
+///
+/// File section (also used by URL
+///
+
 var assertFileExists = function(infile) {
     var instr = infile.toString();
     if (!fs.existsSync(instr)) {
@@ -40,50 +50,55 @@ var assertFileExists = function(infile) {
     return instr;
 };
 
-var assertUrlExists = function(url) {
-    // TODO missing check
-    var instr = url.toString();
-    return instr;
-};
-
-var bufferFromFile = function(htmlfile) {
-    var buffer = fs.readFileSync(htmlfile);
-    return buffer;
-};
-
-var bufferFromUrl = function(url) {
-    rest.get(url).on('complete', function(result) {
-        if (result instanceof Error) {
-            sys.puts('Error: ' + result.message);
-            this.retry(5000); // try again after 5 sec
-        } else {
-            fs.writeFileSync("tmp.html", result);
-        }
-    });
-    var buffer = fs.readFileSync("tmp.html");
-    return buffer;
+var cheerioHtmlFile = function(htmlfile) {
+    return cheerio.load(fs.readFileSync(htmlfile));
 };
 
 var loadChecks = function(checksfile) {
-    var buffer = fs.readFileSync(checksfile);
-    return JSON.parse(buffer);
+    return JSON.parse(fs.readFileSync(checksfile));
 };
 
-var checkHtmlFile = function(buffer, checksfile) {
-    $ = cheerio.load(buffer);
+var checkHtmlFile = function(htmlfile, checksfile) {
+var buffer = fs.readFileSync(htmlfile);
+    $ = cheerioHtmlFile(htmlfile);
     var checks = loadChecks(checksfile).sort();
     var out = {};
-    for (var ii in checks) {
+    for(var ii in checks) {
         var present = $(checks[ii]).length > 0;
         out[checks[ii]] = present;
     }
     return out;
 };
 
-var clone = function(fn) {
-    // Workaround for commander.js issue.
-    // http://stackoverflow.com/a/6772648
-    return fn.bind({});
+var checkFile = function(file, checks) {
+    var checkJson = checkHtmlFile(file, checks);
+    var outJson = JSON.stringify(checkJson, null, 4);
+    console.log(outJson);
+}
+
+///
+/// URL section
+///
+
+var assertUrlExists = function(url) {
+    // TODO missing check
+    var instr = url.toString();
+    return instr;
+};
+
+var checkUrl = function(url, checks) {
+    rest.get(url).on('complete', function(result) {
+        if (result instanceof Error) {
+            sys.puts('Error: ' + result.message);
+            this.retry(5000); // try again after 5 sec
+        } else {
+            var tmp = "$tmp$.html";
+            fs.openSync(tmp, 'w');
+            fs.writeFileSync(tmp, result);
+            checkFile(tmp, checks);
+            fs.unlinkSync(tmp);
+        }
+    });
 };
 
 if (require.main == module) {
@@ -92,17 +107,11 @@ if (require.main == module) {
         .option('-f, --file <html_file>', 'Path to index.html', clone(assertFileExists), HTMLFILE_DEFAULT)
         .option('-u, --url <url>', 'URL for index.html', clone(assertUrlExists), null)
         .parse(process.argv);
-
-    var buffer;
     if (program.url) {
-        buffer = bufferFromUrl(program.url);
+        checkUrl(program.url, program.checks);
     } else {
-        buffer = bufferFromFile(program.file);
+        checkFile(program.file, program.checks);
     }
-    var checks = program.checks;
-    var checkJson = checkHtmlFile(buffer, checks);
-    var outJson = JSON.stringify(checkJson, null, 4);
-    console.log(outJson);
 } else {
     exports.checkHtmlFile = checkHtmlFile;
 }
