@@ -70,13 +70,13 @@
         </div>
 
         <div class="row-fluid pitch">
-            <div class="span5 offset1 video">
-                <!--img class="img-polaroid" src="http://placehold.it/480x270" alt="img" /-->
-                <img class="img-polaroid" src="http://i.imgur.com/h09nxFO.jpg" alt="img" />
+            <div class="span6 video">
+                <iframe width="400" height="284" frameborder=1 src="http://www.youtube.com/embed/FeieYrW52Eg">
+                </iframe>
             </div>
 
             <!-- We define a new 'actions' div to contain statistics, order, and share buttons.-->
-            <div class="span5 actions">
+            <div class="span6 actions">
                 <div class="span8 offset2">
                     <div class="statistics">
                         <div class="span4">
@@ -135,51 +135,75 @@
         <!-- https://developer.mozilla.org/en-US/docs/Web/CSS/text-align -->
         <!-- http://twitter.github.io/bootstrap/base-css.html#images -->
         <!-- http://placehold.it -->
-        <div class="row-fluid section1">
-            <div class="span5 offset1 asset">
-                <img class="img-polaroid" src="http://i.imgur.com/dZZAKAZ.png" alt="img" />
-            </div>
-            <div class="span6 copy">
+        <div class="row-fluid features">
+            <div class="span10 offset1">
+                <h3>
+                    Features
+                </h3>
                 <p>
-                SkyCalc brings together the ease of use of spreadsheets and the power of programming
-                blah blah blah blah blah blah blah blah blah
-                blah blah blah blah blah blah blah blah blah
-                blah blah blah blah blah blah blah blah blah
-                blah blah blah blah blah blah blah blah blah
-                blah blah blah blah blah blah blah blah blah
-                blah blah blah blah blah blah blah blah blah
-                blah blah blah blah blah blah blah blah blah
-                blah blah blah blah blah blah blah blah blah
-                blah blah blah blah blah blah blah blah blah
-                blah blah blah blah blah blah blah blah blah
-                blah blah blah blah blah blah blah blah blah
-                blah blah blah blah blah blah blah blah blah
-                blah blah blah blah blah blah blah blah blah
+                    SkyCalc blends spreadsheet modeling and general programming in a coherent and intuitive framework. 
+                    The result is an incredibly powerful productivity app with a lot to offer to different users:
                 </p>
+                <div class="accordion-group">
+                    <div class="accordion-heading">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#features-beginner">
+                            For begineers
+                        </a>
+                    </div>
+                    <div id="features-beginner" class="accordion-body collapse">
+                        <div class="accordion-inner">
+                            SkyCalc is a great way to learn spreadsheet modeling while getting introduced to general programming.
+                            Novice users quickly become able to do things like:<br />
+                            - Edit formulas as usually done with spreadsheets<br />
+                            - Reuse spreadsheet templates to build non-trivial models<br />
+                            - Drag and drop worksheets and other components from a palette of variable widgets<br />
+                            - Organize worksheets and other components in different tab panels, for better visualization<br />
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-group">
+                    <div class="accordion-heading">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#features-intermediate">
+                            For intermediate users
+                        </a>
+                    </div>
+                    <div id="features-intermediate" class="accordion-body collapse">
+                        <div class="accordion-inner">
+                            SkyCalc offers powerful mechanisms to perform tasks like:<br />
+                            - Define complex data structures, with fields that can hold data as well as formulas<br />
+                            - Create queries to perform sophisticated analysis on arbitrary data<br />
+                            - Define new functions and create reusable components<br />
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-group">
+                    <div class="accordion-heading">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#features-advanced">
+                        For advanced users
+                        </a>
+                    </div>
+                    <div id="features-advanced" class="accordion-body collapse">
+                        <div class="accordion-inner">
+                            SkyCalc supports advanced computing techniques, like:<br />
+                            - Data abstraction: ability to define new types and use them with the same ease as native ones<br />
+                            - Procedural and functional abstractions, including higher order functional programming<br />
+                            - Interprocess communication, via channels to allow SkyCalc instances to communicate with each other<br />
+                            - High Performance Computing, by deploying multiple SkyCalc instances in a cluster<br />
+                            - Monte Carlo simulations, using various stochastic distributions<br />
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="row-fluid section2">
-            <div class="span5 offset1 copy copy-right">
-                <p>
-                At the core, the technology consists of
-                blah blah blah blah blah blah blah blah blah
-                blah blah blah blah blah blah blah blah blah
-                blah blah blah blah blah blah blah blah blah
-                blah blah blah blah blah blah blah blah blah
-                blah blah blah blah blah blah blah blah blah
-                blah blah blah blah blah blah blah blah blah
-                blah blah blah blah blah blah blah blah blah
-                blah blah blah blah blah blah blah blah blah
-                blah blah blah blah blah blah blah blah blah
-                blah blah blah blah blah blah blah blah blah
-                blah blah blah blah blah blah blah blah blah
-                blah blah blah blah blah blah blah blah blah
-                blah blah blah blah blah blah blah blah blah
-                </p>
-            </div>
-            <div class="span5 asset">
+        <div class="row-fluid snapshots">
+            <div class="span6 asset">
                 <img class="img-polaroid" src="http://i.imgur.com/xQ1zLOb.png" alt="img" />
+                <!--img class="img-polaroid" src="http://placehold.it/480x270" alt="img" /-->
+            </div>
+            <div class="span6 asset">
+                <img class="img-polaroid" src="http://i.imgur.com/dZZAKAZ.png" alt="img" />
+                <!--img class="img-polaroid" src="http://placehold.it/480x270" alt="img" /-->
             </div>
         </div>
 
@@ -193,24 +217,26 @@
                     <div class="accordion-group">
                         <div class="accordion-heading">
                             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-                            What does FAQ stand for?
+                                Do we need yet another web-based spreadsheet?
                             </a>
                         </div>
                         <div id="collapseOne" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                Frequently Asked Question.
+                                <strong>In short, yes!</strong> No spreadsheet product out there, in the cloud or not
+                                , combines spreasheet modeling and general computing like SkyCals does.
                             </div>
                         </div>
                     </div>
                     <div class="accordion-group">
                         <div class="accordion-heading">
                             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-                            What's a Frequently Asked Question?
+                                When will SkyCalc be ready?
                             </a>
                         </div>
                         <div id="collapseTwo" class="accordion-body collapse">
                             <div class="accordion-inner">
-                            A question which is commonly asked by users.
+                                We are targeting the first quarter of 2014 for our first release.
+                                Currently there are a handful of Beta customers using our bare bones API, with ho GUI.
                             </div>
                         </div>
                     </div>
@@ -225,7 +251,6 @@
                 <p>
                 This work is licensed under the
                 <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC By-SA 3.0 </a>
-                , without all the cruft that would otherwise be put at the bottom of the page.
                 </p>
             </div>
         </div>
