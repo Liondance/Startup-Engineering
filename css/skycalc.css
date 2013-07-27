@@ -30,6 +30,7 @@
 /* Main body and headings */
 body {
     font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    background-color:#BBDDFF
 }
 .heading, .subheading {
     font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
@@ -84,12 +85,12 @@ p {
     padding: 2.5% 0%;
 }
 .footer {
-    color: #CCCCCC;
+    color: #4488AA
     text-align: center;
 }
 .footer p {
     font-size: 11px;
 }
 .footer a {
-    color: #CCCCCC;
+    color: #2266FF;
 }
