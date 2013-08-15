@@ -2,14 +2,17 @@
 # https://devcenter.heroku.com/articles/config-vars
 .env
 
+# DB connection string
+.pgpass
+
 # npm packages
 node_modules
 
 # Mac
 .DS_Store
 
-# old files
-.old
-
-# Emacs skeletons
+# Emacs
 *~
+
+# temporary backup files
+*.bak
