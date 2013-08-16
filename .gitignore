@@ -2,9 +2,6 @@
 # https://devcenter.heroku.com/articles/config-vars
 .env
 
-# DB connection string
-.pgpass
-
 # npm packages
 node_modules
 
@@ -14,5 +11,5 @@ node_modules
 # Emacs
 *~
 
-# temporary backup files
+# backup files
 *.bak
