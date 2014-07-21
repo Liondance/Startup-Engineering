@@ -1,4 +1,4 @@
-Lakebolt
-========
+bitstarter
+==========
 
-Lakebolt website
+bitstarter app for the startup engineering class
