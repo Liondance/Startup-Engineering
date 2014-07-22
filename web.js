@@ -17,6 +17,7 @@ app.get('/', function(request, response) {
   response.send(data);
 });
 
+/*
 db.sequelize.sync().complete(function(err) {
   if (err) {
     throw err;
@@ -26,3 +27,4 @@ db.sequelize.sync().complete(function(err) {
     });
   }
 });
+*/
