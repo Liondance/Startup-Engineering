@@ -1,7 +1,6 @@
 if (!global.hasOwnProperty('db')) {
     var Sequelize = require('sequelize');
     var sq = null;
-    var fs = require('fs');
     if (process.env.DATABASE_URL) {
         var pgregex = /postgres:\/\/([^:]+):([^@]+)@([^:]+):(\d+)\/(.+)/;
         var match = process.env.DATABASE_URL.match(pgregex);
