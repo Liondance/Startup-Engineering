@@ -8,8 +8,8 @@ var async   = require('async')
   , db      = require('./models');
 
 var app = express();
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
+// app.set('views', __dirname + '/views');
+// app.set('view engine', 'ejs');
 app.set('port', process.env.PORT || 8080);
 
 // Render homepage (note trailing slash): example.com/
