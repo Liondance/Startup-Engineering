@@ -4,12 +4,6 @@ if (!global.hasOwnProperty('db')) {
     var fs = require('fs');
     var PGPASS_FILE = '../.pgpass';
     if (process.env.DATABASE_URL) {
-        /* Remote database
-           Do `heroku config` for details. We will be parsing a connection
-           string of the form:
-           postgres://bucsqywelrjenr:ffGhjpe9dR13uL7anYjuk3qzXo@\
-           ec2-54-221-204-17.compute-1.amazonaws.com:5432/d4cftmgjmremg1
-        */
         var pgregex = /postgres:\/\/([^:]+):([^@]+)@([^:]+):(\d+)\/(.+)/;
         var match = process.env.DATABASE_URL.match(pgregex);
         var user = match[1];
@@ -26,9 +20,6 @@ if (!global.hasOwnProperty('db')) {
         };
         sq = new Sequelize(dbname, user, password, config);
     } else {
-        /* Local database
-           We parse the .pgpass file for the connection string parameters.
-        */
         var pgtokens = fs.readFileSync(PGPASS_FILE).toString().split(':');
         var host = pgtokens[0];
         var port = pgtokens[1];
@@ -46,7 +37,6 @@ if (!global.hasOwnProperty('db')) {
     global.db = {
         Sequelize: Sequelize,
         sequelize: sq,
-        // Order: sq.import(__dirname + '/order')
     };
 }
 module.exports = global.db;
