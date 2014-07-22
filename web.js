@@ -15,12 +15,14 @@ app.get('/', function(request, response) {
   response.send(data);
 });
 
+/*
 db.sequelize.sync().complete(function(err) {
   if (err) {
     throw err;
   } else {
   }
 });
+*/
 
     http.createServer(app).listen(app.get('port'), function() {
       console.log("Listening on " + app.get('port'));
