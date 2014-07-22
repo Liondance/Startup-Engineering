@@ -18,21 +18,6 @@ app.get('/', function(request, response) {
   response.send(data);
 });
 
-// Render example.com/orders
-app.get('/orders', function(request, response) {
-  global.db.Order.findAll().success(function(orders) {
-    var orders_json = [];
-    orders.forEach(function(order) {
-      orders_json.push({id: order.coinbase_id, amount: order.amount, time: order.time});
-    });
-    // Uses views/orders.ejs
-    response.render("orders", {orders: orders_json});
-  }).error(function(err) {
-    console.log(err);
-    response.send("error retrieving orders");
-  });
-});
-
 // Hit this URL while on example.com/orders to refresh
 app.get('/refresh_orders', function(request, response) {
   https.get("https://coinbase.com/api/v1/orders?api_key=" + process.env.COINBASE_API_KEY, function(res) {
