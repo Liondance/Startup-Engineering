@@ -8,16 +8,11 @@ var async   = require('async')
 var app = express();
 app.set('port', process.env.PORT || 8080);
 
-    http.createServer(app).listen(app.get('port'), function() {
-      console.log("Listening on " + app.get('port'));
-    });
-
 app.get('/', function(request, response) {
   var data = fs.readFileSync('index.html').toString();
   response.send(data);
 });
 
-/*
 db.sequelize.sync().complete(function(err) {
   if (err) {
     throw err;
@@ -27,4 +22,3 @@ db.sequelize.sync().complete(function(err) {
     });
   }
 });
-*/
