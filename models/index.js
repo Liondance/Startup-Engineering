@@ -2,7 +2,6 @@ if (!global.hasOwnProperty('db')) {
     var Sequelize = require('sequelize');
     var sq = null;
     var fs = require('fs');
-    var PGPASS_FILE = '../.pgpass';
     if (process.env.DATABASE_URL) {
         var pgregex = /postgres:\/\/([^:]+):([^@]+)@([^:]+):(\d+)\/(.+)/;
         var match = process.env.DATABASE_URL.match(pgregex);
@@ -19,6 +18,7 @@ if (!global.hasOwnProperty('db')) {
             logging:  true
         };
     } else {
+	var PGPASS_FILE = '../.pgpass';
         var pgtokens = fs.readFileSync(PGPASS_FILE).toString().split(':');
         var host = pgtokens[0];
         var port = pgtokens[1];
