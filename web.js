@@ -18,7 +18,6 @@ app.get('/', function(request, response) {
   response.send(data);
 });
 
-/*
 // sync the database and start the server
 db.sequelize.sync().complete(function(err) {
   if (err) {
@@ -29,4 +28,3 @@ db.sequelize.sync().complete(function(err) {
     });
   }
 });
-*/
