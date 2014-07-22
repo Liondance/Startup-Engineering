@@ -1,4 +1,4 @@
-bitstarter
-==========
+SkyCalc
+=======
 
-bitstarter app for the startup engineering class
+SkyCalc crowd-funding site
