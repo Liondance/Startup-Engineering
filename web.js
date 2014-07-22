@@ -18,6 +18,8 @@ app.get('/', function(request, response) {
   response.send(data);
 });
 
+/*
+
 // Render example.com/orders
 app.get('/orders', function(request, response) {
   global.db.Order.findAll().success(function(orders) {
@@ -69,17 +71,6 @@ app.get('/refresh_orders', function(request, response) {
 
 });
 
-// sync the database and start the server
-db.sequelize.sync().complete(function(err) {
-  if (err) {
-    throw err;
-  } else {
-    http.createServer(app).listen(app.get('port'), function() {
-      console.log("Listening on " + app.get('port'));
-    });
-  }
-});
-
 // add order to the database if it doesn't already exist
 var addOrder = function(order_obj, callback) {
   var order = order_obj.order; // order json from coinbase
@@ -109,3 +100,17 @@ var addOrder = function(order_obj, callback) {
     });
   }
 };
+
+*/
+
+// sync the database and start the server
+db.sequelize.sync().complete(function(err) {
+  if (err) {
+    throw err;
+  } else {
+    http.createServer(app).listen(app.get('port'), function() {
+      console.log("Listening on " + app.get('port'));
+    });
+  }
+});
+
