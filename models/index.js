@@ -18,6 +18,7 @@ if (!global.hasOwnProperty('db')) {
             logging:  true
         };
     } else {
+        abort();
     }
     sq = new Sequelize(dbname, user, password, config);
     global.db = {
