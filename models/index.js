@@ -16,7 +16,7 @@ if (!global.hasOwnProperty('db')) {
             protocol: 'postgres',
             port:     port,
             host:     host,
-            logging:  true //false
+            logging:  true
         };
     } else {
         var pgtokens = fs.readFileSync(PGPASS_FILE).toString().split(':');
