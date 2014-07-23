@@ -5,8 +5,6 @@ var
   , http    = require('http')
   , https   = require('https');
 
-//   , db      = require('./models');
-
 var app = express();
 
 app.set('port', process.env.PORT || 8080);
