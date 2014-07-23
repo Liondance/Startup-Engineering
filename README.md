@@ -1,4 +1,4 @@
-Lakebolt
+SkyCalc
 =======
 
-Lakebolt Research Website
+SkyCalc crowd-funding site
