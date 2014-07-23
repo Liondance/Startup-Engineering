@@ -3,8 +3,9 @@ var
   , express = require('express')
   , fs      = require('fs')
   , http    = require('http')
-  , https   = require('https')
-  , db      = require('./models');
+  , https   = require('https');
+
+//   , db      = require('./models');
 
 var app = express();
 
